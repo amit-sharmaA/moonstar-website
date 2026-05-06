@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<style>
+
+
+    .active{
+        color: #420503 !important;
+    }
+
+     .carousel-item img {
+    height: 600px;   /* yaha apni required height set karo */
+    /* object-fit: cover;  image stretch na ho, proper fit ho */
+
+    
+}
+
+/* new slider */
+.carousel-item {
+  height: 700px; /* apne hisaab se change kar sakte ho */
+  /* width: 90%; */
+   background-size:auto;     /* same as object-fit: cover */
+  background-position: center;
+  background-repeat: no-repeat;
+  /* object-fit: cover; */
+}
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  /* object-fit: cover; */
+}
+    
+    .carousel-caption {
+    animation: fadeSlide 1s ease-in-out;
+}
+
+/* Counting section */
+
+ .counter-section {
+      background-color: #b2cbfd;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .counter-box h2 {
+      font-size: 50px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .counter-box p {
+      margin-top: 5px;
+      font-size: 14px;
+      letter-spacing: 2px;
+      color: #444;
+    }
+
+    /* Products Category immages */
+.img-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-box img {
+  height: 300px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+/* Overlay text */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  opacity: 0;
+  transition: 0.4s;
+}
+/* dropdown */
+.accordion-button {
+    justify-content: center;
+    position: relative;
+}
+
+.accordion-button::after {
+    position: absolute;
+    right: 20px;   /* arrow right me fix rahega */
+}
+
+/* map saction */
+
+.contact-section {
+  padding: 60px 0;
+  background: #ffffff;
+}
+
+/* Card */
+.contact-card {
+  background: linear-gradient(to right ,#6d90b9,#bbc7dc);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* Left */
+.contact-info {
+  padding: 40px;
+}
+
+.contact-info h3 {
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.contact-info h3::after {
+  content: '';
+  width: 50px;
+  height: 3px;
+  background: #0d6efd;
+  display: block;
+  margin-top: 8px;
+}
+
+.contact-info p {
+  color: #555;
+}
+
+/* Map */
+.map-container {
+  position: relative;
+  height: 100%;
+  min-height: 350px; /* IMPORTANT */
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Overlay */
+.map-overlay {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  font-size: 14px;
+}
+
+/* team section */
+
+/* Heading */
+.team-title {
+    color: #ff7a00;
+    font-weight: 700;
+    font-size: 48px;
+}
+
+.team-line {
+    width: 60px;
+    height: 4px;
+    background: #ff7a00;
+    margin: 10px 0 20px;
+}
+
+/* Team Card */
+.team-card {
+    text-align: center;
+    position: relative;
+    margin-top: 50px;
+}
+
+.team-img {
+    width: 270px;
+    height: 320px;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.team-card:hover .team-img {
+    transform: scale(1.08);
+}
+
+/* Orange strip */
+.team-strip {
+    position: absolute;
+    top: 80px;
+    left: -40px;
+    right: -40px;
+    height: 50px;
+    background: red;
+    z-index: -1;
+}
+
+/* Offset layout */
+.offset-up {
+    margin-top: -40px;
+}
+
+.offset-down {
+    margin-top: 40px;
+}
+
+/* Text */
+.team-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.team-role {
+    color: gray;
+    font-size: 14px;
+}
+
+/* Social Icons */
+.social-icons i {
+    margin: 8px;
+    color: #ff7a00;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.social-icons i:hover {
+    color: black;
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .offset-up, .offset-down {
+        margin-top: 0;
+        overflow: hidden;
+    }
+}
+
+/* FOOTER */
+.footer-section {
+  background: linear-gradient(to right, #1f1f1f, #3a3a3a);
+  color: #fff;
+  padding: 60px 0 20px;
+  position: relative;
+}
+
+.footer-box {
+  margin-bottom: 20px;
+  animation: fadeUp 1s ease;
+}
+
+.footer-box h4,
+.footer-box h5 {
+  margin-bottom: 15px;
+  color: #DAA520;
+}
+
+.footer-box p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Links */
+.footer-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-box ul li {
+  margin-bottom: 8px;
+}
+
+.footer-box ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-box ul li a:hover {
+  color: #DAA520;
+  padding-left: 5px;
+}
+
+/* Social */
+.footer-social i {
+  margin-right: 10px;
+  padding: 10px;
+  background: #fff;
+  color: #333;
+  border-radius: 50%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.footer-social i:hover {
+  background: #DAA520;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #555;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Scroll Top Button */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #DAA520;
+  color: white;
+  border: none;
+  padding: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  font-size: 22px;
+}
+
+#scrollTopBtn:hover {
+  background: orange;
+}
+
+/* Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+/* Default (Laptop / Desktop) */
+
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .carousel-item {
+    height: 500px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .carousel-item {
+    height: 50vh; /* screen ka 50% */
+  }
+
+  .carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+
+
+
+/* Hover effect */
+.img-box:hover .overlay {
+  opacity: 1;
+}
+
+.img-box:hover img {
+  transform: scale(1.1);
+}
+
+@keyframes fadeSlide {
+    from {      
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.accordion-button {
+    justify-content: center;
+    position: relative;
+}
+
+.accordion-button::after {
+    position: absolute;
+    right: 20px;   /* arrow right me fix rahega */
+}
+
+
+
+
+
+    
+
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #dbc99b;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://moonstarlifecare.com/wp-content/uploads/2025/04/Logo-200x58.png" alt="">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-weight: 500;">
+                <li class="nav-item"><a class="nav-link active" style="color: rgba(207, 1, 1, 0.815);" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: rgba(207, 1, 1, 0.815);" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: rgba(207, 1, 1, 0.815);" href="#">Health Care</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: rgba(207, 1, 1, 0.815);" href="#">Cosmetics</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: rgba(207, 1, 1, 0.815);" href="#">Other</a></li>
+                <li class="nav-item"><a class="nav-link" style="color: rgba(207, 1, 1, 0.815);" href="#">Contact Us</a></li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search">
+                <button class="btn" style="background-color:#DAA520; color: rgba(207, 1, 1, 0.815); font-weight: 500;">
+                    Search
+                </button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- slider -->
+
+
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="4" aria-label="Slide 1"></button>
+
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="./img/product/facewash2.png" class="img-fluid w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block" style="color: white;">
+        <h5 id="sliderText">First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="./img/product/oil sampoo.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 id="sliderText">Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="./img/product/facewash.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 id="sliderText">Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="./img/product/aloeVera.png" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 id="sliderText">Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shapes" style="height: 10px; width: 100%;">
+
+</div>
+
+
+<!-- counting section -->
+
+<div class="counter-section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-3 col-6">
+        <div class="counter-box">
+          <h2 class="counter" data-target="350">0</h2>
+          <p>PRODUCTS</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="counter-box">
+          <h2 class="counter" data-target="400">0</h2>
+          <p>TEAM WORK</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="counter-box">
+          <h2 class="counter" data-target="600">0</h2>
+          <p>STOCKIST</p>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6">
+        <div class="counter-box">
+          <h2 class="counter" data-target="2000">0</h2>
+          <p>RETAILERS</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="shapes" style="height: 10px; width: 100%;">
+
+</div>
+
+
+<!-- dropdown with  -->
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-weight: bold; font-size: 30px; color:white; background-color: green;">
+       Products Category
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <!-- <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow. -->
+        Find the perfect products across <strong> health care, cosmetics,</strong> and <strong>more </strong>— all in one place.
+        <div class="container">
+  <div class="row g-3">
+
+  <div class="shapes" style="height: 20px; width: 100%;"></div>
+
+  <!-- Health Care -->
+  <div class="col-12 col-sm-6 col-md-4">
+    <a href="health.html" style="text-decoration: none; color: inherit;">
+      <div class="img-box">
+        <img src="./img/health care.jpg" class="img-fluid w-100" alt="health care">
+        <div class="overlay" style="font-weight: bolder;">Health Care</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Cosmetics -->
+  <div class="col-12 col-sm-6 col-md-4">
+    <a href="cosmetics.html" style="text-decoration: none; color: inherit;">
+      <div class="img-box">
+        <img src="./img/cosmetics2.jpg" class="img-fluid w-100" alt="cosmetics">
+        <div class="overlay" style="font-weight: bolder;">Cosmetics</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Other -->
+  <div class="col-12 col-sm-6 col-md-4">
+    <a href="other.html" style="text-decoration: none; color: inherit;">
+      <div class="img-box">
+        <img src="./img/other.jpg" class="img-fluid w-100" alt="other">
+        <div class="overlay" style="font-weight: bolder;">Other</div>
+      </div>
+    </a>
+  </div>
+
+</div>
+  </div>
+</div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- map section -->
+
+<section class="contact-section">
+  <div class="container">
+
+    <h1 class="team-title">Reach us</h1>
+    <div class="team-line"></div>
+
+    <div class="contact-card">
+      <div class="row g-0">
+
+        <!-- LEFT SIDE -->
+        <div class="col-md-5 contact-info">
+          <h3>Office Address</h3>
+          <p>
+            501, 5th Floor, The Palace,<br>
+            Opp. Capital Square,<br>
+            Godadara Road, Surat - 395010
+          </p>
+
+          <p>📧 moonstarlifecare@gmail.com</p>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-md-7">
+          <div class="map-container">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.833298993119!2d72.87039867471788!3d21.159031383292564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04fdf43ffff91%3A0xd1e82381b242c882!2sMoon%20Star%20Life%20Care%20Pvt.Ltd!5e0!3m2!1sen!2sin!4v1776882678139!5m2!1sen!2sin"
+            allowfullscreen="" loading="lazy"></iframe>
+
+            <div class="map-overlay">
+              <strong>Moon Star Life Care Pvt. Ltd</strong>
+              Surat, Gujarat
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- team section -->
+
+<div class="container py-5">
+
+    <h1 class="team-title">Our Team</h1>
+    <div class="team-line"></div>
+    <p class="text-muted mb-5">Meet our talented and creative team members</p>
+
+    <div class="row justify-content-center text-center">
+
+        <!-- Member 1 -->
+        <div class="col-md-4 team-card offset-down">
+            <div class="team-strip"></div>
+            <img src="./img/Goparam-Sir.jpg" class="team-img rounded shadow">
+            <div class="team-name">GOPARAM CHOUDHARY</div>
+            <div class="team-role">MANAGING DIRECTOR</div>
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="col-md-4 team-card offset-up">
+            <div class="team-strip"></div>
+            <img src="./img/Mahendra-Sir.jpg" class="team-img rounded shadow">
+            <div class="team-name">MAHENDRA CHOUDHARY</div>
+            <div class="team-role">MANAGING DIRECTOR</div>
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="col-md-4 team-card offset-down">
+            <div class="team-strip"></div>
+            <img src="./img/Pravin-Sir.jpg" class="team-img rounded shadow">
+            <div class="team-name">POONARAM CHOUDHARY</div>
+            <div class="team-role">MANAGING DIRECTOR</div>
+            <div class="social-icons">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer-section">
+
+  <div class="container">
+    <div class="row">
+
+      <!-- Company Info -->
+      <div class="col-md-4 footer-box">
+        <h4>Moon Star Life Care</h4>
+        <p>
+          We provide high quality healthcare, cosmetics and daily use products 
+          with trust and excellence. Your health, our priority.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 footer-box">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Health Care</a></li>
+          <li><a href="#">Cosmetics</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 footer-box">
+        <h5>Contact Us</h5>
+        <p>📍 Surat, Gujarat</p>
+        <p>📧 moonstarlifecare@gmail.com</p>
+        <p>📞 +91 9876543210</p>
+
+        
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bottom -->
+  <div class="footer-bottom">
+    © 2026 Moon Star Life Care | All Rights Reserved
+  </div>
+
+  <!-- Scroll Top Button -->
+  <button id="scrollTopBtn">↑</button>
+
+</footer>
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+        
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+
+
+    <!-- counter -->
+    <script>
+  const counters = document.querySelectorAll('.counter');
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+
+      const speed = 70; // lower = faster
+      const increment = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increment);
+        setTimeout(updateCount, 30);
+      } else {
+        counter.innerText = target + "+";
+      }
+    };
+
+    updateCount();
+  });
+
+
+
+  <!-- map -->
+  const elements = document.querySelectorAll(
+  ".animate, .animate-left, .animate-right, .map-container"
+);
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  {
+    threshold: 0.2,
+  }
+);
+
+elements.forEach((el) => observer.observe(el));
+
+
+
+// footer
+
+// Scroll to Top Button
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = () => {
+  if (document.documentElement.scrollTop > 200) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+scrollBtn.onclick = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+</script>
+
+
+
+
+</body>
+
+</html>
